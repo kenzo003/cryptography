@@ -212,6 +212,4 @@ public class Playfaier {
         System.out.println(dec.toString());
         return entext;
     }
-
-
 }

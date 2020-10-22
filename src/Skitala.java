@@ -42,11 +42,6 @@ public class Skitala implements Cryptography {
     }
 
     @Override
-    public String encrypt(String srcData, String key) {
-        return null;
-    }
-
-    @Override
     public String decrypt(String resData, int key) {
 
         int k = resData.length();
@@ -85,5 +80,4 @@ public class Skitala implements Cryptography {
 
         return result.toString();
     }
-
 }

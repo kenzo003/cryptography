@@ -25,7 +25,7 @@ public class Main {
                 case 1:
 
                     srcText = fileReader("src1.txt");
-                    if (!validator.isValid(srcText)){
+                    if (!validator.isValid(srcText)) {
                         System.out.println("Исходные данные не соответствуют алфавиту");
                         run = false;
                         break;
@@ -58,7 +58,7 @@ public class Main {
                     break;
                 case 2:
                     srcText = fileReader("src2.txt");
-                    if (!validator.isValid(srcText)){
+                    if (!validator.isValid(srcText)) {
                         System.out.println("Исходные данные не соответствуют алфавиту");
                         run = false;
                         break;
