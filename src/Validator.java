@@ -14,4 +14,38 @@ public class Validator {
 
         return true;
     }
+    public static boolean isValid2(String src) {
+        ArrayList<Character> alphabet = new ArrayList<Character>(Arrays.asList(
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '));
+        for (int i = 0; i < src.length(); i++) {
+            if (!alphabet.contains(src.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isValid3(String src) {
+        ArrayList<Character> alphabet = new ArrayList<Character>(Arrays.asList(
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'q', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', ',', '.', '-'));
+        for (int i = 0; i < src.length(); i++) {
+            if (!alphabet.contains(src.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isValid5(String src) {
+
+        for (int i = 0; i < src.length(); i++) {
+            if (!((int)src.charAt(i) >= 0 && (int)src.charAt(i) <= 255)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

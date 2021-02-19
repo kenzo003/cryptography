@@ -133,6 +133,7 @@ public class Playfaier {
             plaintext.add(temparr);
         }
 
+        System.out.print("Биграммы: ");
         for (int i = 0; i < plaintext.size(); i++) {
             System.out.print(plaintext.get(i)[0] + "" + plaintext.get(i)[1] + " ");
         }
@@ -178,16 +179,11 @@ public class Playfaier {
             }
 
             if (a1 == a2) {
-                b1 = (b1 == 0) ? plate[a1].length : b1;
-                b2 = (b2 == 0) ? plate[a1].length : b2;
-
-                tmpArr[0] = plate[a1][(b1 - 1) % plate[a1].length];
-                tmpArr[1] = plate[a2][(b2 - 1) % plate[a2].length];
+                tmpArr[0] = plate[a1][(b1 + 1) % plate[a1].length];
+                tmpArr[1] = plate[a2][(b2 + 1) % plate[a1].length];
             } else if (b1 == b2) {
-                a1 = (a1 == 0) ? plate.length : a1;
-                a2 = (a2 == 0) ? plate.length : a2;
-                tmpArr[0] = plate[(a1 - 1) % plate.length][b1];
-                tmpArr[1] = plate[(a2 - 1) % plate.length][b2];
+                tmpArr[0] = plate[(a1 + 1) % plate.length][b1];
+                tmpArr[1] = plate[(a2 + 1) % plate.length][b2];
             } else {
                 tmpArr[1] = plate[a2][b1];
                 tmpArr[0] = plate[a1][b2];
@@ -201,15 +197,14 @@ public class Playfaier {
             entext += encrytext.get(i)[0] + "" + encrytext.get(i)[1] + " ";
         }
 
-        System.out.println("Результат: " + entext);
+        System.out.println("Промежуточный результат: " + entext);
+
         StringBuffer dec = new StringBuffer();
         for (int i = 0; i < entext.length(); i++) {
             if (entext.charAt(i) != ' ') {
                 dec.append(entext.charAt(i));
             }
         }
-
-        System.out.println(dec.toString());
-        return entext;
+        return dec.toString();
     }
 }
