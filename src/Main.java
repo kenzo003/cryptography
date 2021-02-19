@@ -112,7 +112,7 @@ public class Main {
                         break;
                     }
 
-                    key = fileReader("key5.txt");
+                    //key = fileReader("key5.txt");
 
                     int cases_5 = 0;
                     System.out.println("1. Зашифровать");
@@ -133,13 +133,13 @@ public class Main {
 
                             break;
                         case 2:
-                            Scanner scanner1 = new Scanner(System.in);
-                            //String gamma = fileReader("gamma5.txt");
-                            String gamma = scanner1.nextLine();
+                            //Scanner scanner1 = new Scanner(System.in);
+                            String seed = fileReader("seed5.txt");
+                            //String gamma = scanner1.nextLine();
                             String text = fileReader("res5.txt");
                             //System.out.print("\nКлюч: " + key);
-                            System.out.print("\nИсходные данные: " + result + "\n");
-                            System.out.println("Резульат: " + gamming.decrypt2(result, gamma));
+                            System.out.print("\nИсходные данные: " + fileReader("res5.txt") + "\n");
+                            System.out.println("Резульат: " + gamming.decrypt2(result, seed));
                             break;
                     }
                     break;
@@ -289,8 +289,9 @@ public class Main {
     }
 
     public static void fileWriter(String fileName, String result) {
-
-        try (FileWriter writer = new FileWriter(fileName, Charset.forName("windows-1251"), true)) {
+        try (FileWriter writer = new FileWriter(fileName, Charset.forName("UTF-8"), true)) {
+            new FileOutputStream(fileName, false).close();
+            writer.write("");
             writer.write(result);
             writer.flush();
         } catch (IOException ex) {

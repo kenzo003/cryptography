@@ -104,6 +104,7 @@ public class Gamming {
     public String encrypt2(String plainText) {
         //генерация пвсевдослучайной последовательности
         Alberti alberti = new Alberti();
+
         String sequence = alberti.next();
 //        String sequence = alberti.next().substring(0,plainText.length());
 //        if (sequence.length() < plainText.length())
@@ -140,7 +141,7 @@ public class Gamming {
 
         //Получаем результат сложения xor
         String[] itemResult = new String[opentText.length];
-        Arrays.fill(itemResult,"");
+        Arrays.fill(itemResult, "");
         //Сложение
         for (int i = 0; i < opentText.length; i++) {
             for (int j = 0; j < opentText[i].length(); j++) {
@@ -152,13 +153,15 @@ public class Gamming {
         }
 
         //Перевод из двоичной записи в обычную
-        String[]result = new String[itemResult.length];
+        String[] result = new String[itemResult.length];
         StringBuilder resultOne = new StringBuilder();
         for (int i = 0; i < itemResult.length; i++) {
-            result[i] = String.valueOf((char)Integer.parseInt(itemResult[i],2));
-            resultOne.append((char)Integer.parseInt(itemResult[i],2));
+            result[i] = String.valueOf((char) Integer.parseInt(itemResult[i], 2));
+            resultOne.append((char) Integer.parseInt(itemResult[i], 2));
         }
 
+        File.fileWriter("gamma5.txt", Arrays.toString(itemResult));
+        File.fileWriter("seed5.txt", alberti.getSeed());
         System.out.println(Arrays.toString(opentText));
         System.out.println(Arrays.toString(gammaChiper));
         System.out.println(Arrays.toString(itemResult));
@@ -227,7 +230,7 @@ public class Gamming {
 
         //Получаем результат сложения xor
         String[] itemResult = new String[opentText.length];
-        Arrays.fill(itemResult,"");
+        Arrays.fill(itemResult, "");
         //Сложение
         for (int i = 0; i < opentText.length; i++) {
             for (int j = 0; j < opentText[i].length(); j++) {
@@ -239,11 +242,11 @@ public class Gamming {
         }
 
         //Перевод из двоичной записи в обычную
-        String[]result = new String[itemResult.length];
+        String[] result = new String[itemResult.length];
         StringBuilder resultOne = new StringBuilder();
         for (int i = 0; i < itemResult.length; i++) {
-            result[i] = String.valueOf((char)Integer.parseInt(itemResult[i],2));
-            resultOne.append((char)Integer.parseInt(itemResult[i],2));
+            result[i] = String.valueOf((char) Integer.parseInt(itemResult[i], 2));
+            resultOne.append((char) Integer.parseInt(itemResult[i], 2));
         }
 
         System.out.println(Arrays.toString(opentText));
@@ -251,7 +254,7 @@ public class Gamming {
         System.out.println(Arrays.toString(itemResult));
         System.out.println(Arrays.toString(result));
         //System.out.println(resultOne);
-       return resultOne.toString();
+        return resultOne.toString();
     }
 
     private static String fileReader(String fileName) {

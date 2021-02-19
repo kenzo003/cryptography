@@ -20,6 +20,9 @@ public class Alberti {
         return alphabet;
     }
 
+    public String getSeed(){
+        return this.seed;
+    }
     public Alberti() {
         this.seed = LocalDateTime.now().toString().replaceAll("[^0-9]*", "");
     }
